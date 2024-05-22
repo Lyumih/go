@@ -1,0 +1,23 @@
+$go_rock $mol_page
+	realm $hyoo_crus_realm
+	turns? 0
+	turn? 0
+	body /
+		<= Games_label $mol_paragraph title <= games_label \Игр: 
+		<= Turn_label $mol_paragraph title <= turn_label \Ход
+		<= Step_row $mol_row sub /
+			<= Rock $mol_button_major
+				title \Камень
+				click? <=> white_turn? null
+				enabled <= white_enabled? true
+			<= Scissors $mol_button_major
+				title \Ножницы
+				click? <=> black_turn? null
+				enabled <= black_enabled? false
+			<= Paper $mol_button_major
+				title \Бумага
+				click? <=> black_turn? null
+				enabled <= black_enabled? false
+		<= Win $mol_button_major
+			title \Победить
+			click? <=> win? null

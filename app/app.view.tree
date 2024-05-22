@@ -1,23 +1,12 @@
-$go_app $mol_page
-	title \Го Шрёдингера - CRUS игра
+$go_app $mol_book2_catalog
+	menu_title \Игры Шрёдингера
+	param \p
 	realm $hyoo_crus_realm
-	turns? 0
-	turn? 0
-	plugins /
-		<= Theme $mol_theme_auto theme \$mol_theme_light
-	foot /
-		<= Source $mol_link_source
-			uri \https://github.com/Lyumih/go
-		<= Crus_status $hyoo_crus_status
+	plugins / <= Theme $mol_theme_auto theme \$mol_theme_light
+	menu_foot /
+		<= Source $mol_link_source uri \https://github.com/Lyumih/go
+		<= User_id $mol_text text <= user_id \
+		<= Crus_status $hyoo_crus_status realm <= realm
+	spreads *
+		rock <= Rock $go_rock
 			realm <= realm
-	body /
-		<= Turn_label $mol_paragraph title <= turn_label \Ход
-		<= Step_row $mol_row sub /
-			<= White $mol_button_major
-				title \Ход белой фишки
-				click? <=> white_turn? null
-				enabled <= white_enabled? true
-			<= Black $mol_button_major
-				title \Ход чёрной фишки
-				click? <=> black_turn? null
-				enabled <= black_enabled? false
