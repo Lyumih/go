@@ -1,0 +1,11 @@
+$go_app $mol_page
+	title \ГО - CRUS игра
+	realm $hyoo_crus_realm
+	plugins /
+		<= Theme $mol_theme_auto theme \$mol_theme_light
+	foot /
+		<= Source $mol_link_source
+			uri \https://github.com/Lyumih/go
+		<= Crus_status $hyoo_crus_status
+			realm <= realm
+	body /
