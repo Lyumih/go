@@ -249,7 +249,8 @@
     "$mol_rest_code",
     "$mol_websocket_frame",
     "$mol_websocket",
-    "$mol_button_major"
+    "$mol_button_major",
+    "$mol_row"
   ],
   "dependencies": {
     "jsdom": "*",

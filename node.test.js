@@ -12178,6 +12178,20 @@ var $;
 "use strict";
 
 ;
+	($.$mol_row) = class $mol_row extends ($.$mol_view) {};
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/row/row.view.css", "[mol_row] {\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\talign-items: flex-start;\n\talign-content: flex-start;\n\tjustify-content: flex-start;\n\tpadding: var(--mol_gap_block);\n\tgap: var(--mol_gap_block);\n\tflex: 0 0 auto;\n\tbox-sizing: border-box;\n\tmax-width: 100%;\n}\n\n[mol_row] > * {\n\tmax-width: 100%;\n}\n");
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
 	($.$go_app) = class $go_app extends ($.$mol_page) {
 		Theme(){
 			const obj = new this.$.$mol_theme_auto();
@@ -12202,28 +12216,43 @@ var $;
 			(obj.title) = () => ((this?.turn_label()));
 			return obj;
 		}
-		black_turn(next){
-			if(next !== undefined) return next;
-			return null;
-		}
-		Black(){
-			const obj = new this.$.$mol_button_major();
-			(obj.title) = () => ("Ход чёрной фишки");
-			(obj.click) = (next) => ((this?.black_turn(next)));
-			return obj;
-		}
 		white_turn(next){
 			if(next !== undefined) return next;
 			return null;
+		}
+		white_enabled(next){
+			if(next !== undefined) return next;
+			return true;
 		}
 		White(){
 			const obj = new this.$.$mol_button_major();
 			(obj.title) = () => ("Ход белой фишки");
 			(obj.click) = (next) => ((this?.white_turn(next)));
+			(obj.enabled) = () => ((this?.white_enabled()));
+			return obj;
+		}
+		black_turn(next){
+			if(next !== undefined) return next;
+			return null;
+		}
+		black_enabled(next){
+			if(next !== undefined) return next;
+			return false;
+		}
+		Black(){
+			const obj = new this.$.$mol_button_major();
+			(obj.title) = () => ("Ход чёрной фишки");
+			(obj.click) = (next) => ((this?.black_turn(next)));
+			(obj.enabled) = () => ((this?.black_enabled()));
+			return obj;
+		}
+		Step_row(){
+			const obj = new this.$.$mol_row();
+			(obj.sub) = () => ([(this?.White()), (this?.Black())]);
 			return obj;
 		}
 		title(){
-			return "ГО - CRUS игра";
+			return "ГО Шрёдингера - CRUS игра";
 		}
 		realm(){
 			const obj = new this.$.$hyoo_crus_realm();
@@ -12244,21 +12273,20 @@ var $;
 			return [(this?.Source()), (this?.Crus_status())];
 		}
 		body(){
-			return [
-				(this?.Turn_label()), 
-				(this?.Black()), 
-				(this?.White())
-			];
+			return [(this?.Turn_label()), (this?.Step_row())];
 		}
 	};
 	($mol_mem(($.$go_app.prototype), "Theme"));
 	($mol_mem(($.$go_app.prototype), "Source"));
 	($mol_mem(($.$go_app.prototype), "Crus_status"));
 	($mol_mem(($.$go_app.prototype), "Turn_label"));
-	($mol_mem(($.$go_app.prototype), "black_turn"));
-	($mol_mem(($.$go_app.prototype), "Black"));
 	($mol_mem(($.$go_app.prototype), "white_turn"));
+	($mol_mem(($.$go_app.prototype), "white_enabled"));
 	($mol_mem(($.$go_app.prototype), "White"));
+	($mol_mem(($.$go_app.prototype), "black_turn"));
+	($mol_mem(($.$go_app.prototype), "black_enabled"));
+	($mol_mem(($.$go_app.prototype), "Black"));
+	($mol_mem(($.$go_app.prototype), "Step_row"));
 	($mol_mem(($.$go_app.prototype), "realm"));
 	($mol_mem(($.$go_app.prototype), "turns"));
 	($mol_mem(($.$go_app.prototype), "turn"));
@@ -12291,6 +12319,12 @@ var $;
                     this.turn(0);
                     this.turns_increment();
                 }
+            }
+            white_enabled(next) {
+                return !!this.turn();
+            }
+            black_enabled(next) {
+                return !this.turn();
             }
         }
         $$.$go_app = $go_app;
