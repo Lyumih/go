@@ -1,6 +1,8 @@
 $go_app $mol_page
 	title \ГО - CRUS игра
 	realm $hyoo_crus_realm
+	turns? 0
+	turn? 0
 	plugins /
 		<= Theme $mol_theme_auto theme \$mol_theme_light
 	foot /
@@ -9,3 +11,10 @@ $go_app $mol_page
 		<= Crus_status $hyoo_crus_status
 			realm <= realm
 	body /
+		<= Turn_label $mol_paragraph title <= turn_label \Ход
+		<= Black $mol_button_major
+			title \Ход чёрной фишки
+			click? <=> black_turn? null
+		<= White $mol_button_major
+			title \Ход белой фишки
+			click? <=> white_turn? null
