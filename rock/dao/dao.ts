@@ -3,8 +3,8 @@ namespace $ {
 		Games: $hyoo_crus_atom_real
 	} ) {
 		win() {
-			console.log('rock dao win', this.Title()?.val(), this.ref())
-			this.Games( null )?.val( this.Games( null )?.val() ?? 0 + 1)
+			console.log( 'rock dao win', this.Title()?.val(), this.ref(), this.Games( null )?.val() )
+			this.Games( null )?.val( (this.Games( null )?.val() ?? 0) + 1)
 		}
 	}
 }
