@@ -23,6 +23,14 @@ namespace $.$$ {
 				this.turns_increment()
 			}
 		}
+
+		white_enabled( next?: boolean | undefined ): boolean {
+			return !!this.turn()
+		}
+
+		black_enabled( next?: boolean | undefined ): boolean {
+			return !this.turn()
+		}
 		
 	}
 }

@@ -1,5 +1,5 @@
 $go_app $mol_page
-	title \ГО - CRUS игра
+	title \ГО Шрёдингера - CRUS игра
 	realm $hyoo_crus_realm
 	turns? 0
 	turn? 0
@@ -12,9 +12,12 @@ $go_app $mol_page
 			realm <= realm
 	body /
 		<= Turn_label $mol_paragraph title <= turn_label \Ход
-		<= Black $mol_button_major
-			title \Ход чёрной фишки
-			click? <=> black_turn? null
-		<= White $mol_button_major
-			title \Ход белой фишки
-			click? <=> white_turn? null
+		<= Step_row $mol_row sub /
+			<= White $mol_button_major
+				title \Ход белой фишки
+				click? <=> white_turn? null
+				enabled <= white_enabled? true
+			<= Black $mol_button_major
+				title \Ход чёрной фишки
+				click? <=> black_turn? null
+				enabled <= black_enabled? false
