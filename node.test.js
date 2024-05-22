@@ -12252,7 +12252,7 @@ var $;
 			return obj;
 		}
 		title(){
-			return "ГО Шрёдингера - CRUS игра";
+			return "Го Шрёдингера - CRUS игра";
 		}
 		realm(){
 			const obj = new this.$.$hyoo_crus_realm();

@@ -384,7 +384,7 @@ $mol_button_major $mol_button_minor
 $mol_row $mol_view
 
 $go_app $mol_page
-	title \ГО Шрёдингера - CRUS игра
+	title \Го Шрёдингера - CRUS игра
 	realm $hyoo_crus_realm
 	turns? 0
 	turn? 0
