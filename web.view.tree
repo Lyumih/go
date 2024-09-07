@@ -544,10 +544,9 @@ $mol_frame $mol_embed_native
 		^
 		data null
 		type null
+		allow <= allow \
 		src <= uri? \about:config
 		srcdoc <= html null
-		allow <= allow \
-		- allowfullscreen <=
 	fullscreen true
 	accelerometer true
 	autoplay true
@@ -557,7 +556,7 @@ $mol_frame $mol_embed_native
 	clipboard_read true
 	clipboard_write true
 
-$mol_embed_youtube $mol_check
+$mol_embed_service $mol_check
 	uri \
 	video_preview \
 	video_id \
@@ -572,6 +571,10 @@ $mol_embed_youtube $mol_check
 			uri <= video_embed \
 
 
+$mol_embed_youtube $mol_embed_service
+
+$mol_embed_rutube $mol_embed_service
+
 $mol_embed_any $mol_view
 	Image $mol_image
 		title <= title \
@@ -582,6 +585,22 @@ $mol_embed_any $mol_view
 	Youtube $mol_embed_youtube
 		title <= title \
 		uri <= uri \
+	Rutube $mol_embed_rutube
+		title <= title \
+		uri <= uri \
+
+$mol_expander $mol_list
+	rows /
+		<= Label $mol_view
+			sub /
+				<= Trigger $mol_check_expand
+					checked? <=> expanded? false
+					expandable <= expandable true
+					label <= label /
+						<= title
+				<= Tools null
+		<= Content $mol_list
+			rows <= content /
 
 $mol_text $mol_list
 	uri_base \
@@ -661,6 +680,14 @@ $mol_text $mol_list
 	Embed* $mol_embed_any
 		uri <= link_uri* \
 		title <= line_text* \
+	- \Spoilers
+	Spoiler* $mol_expander
+		label /
+			<= Spoiler_label* $mol_text
+				text <= spoiler_label* \
+		content /
+			<= Spoiler_content* $mol_text
+				text <= spoiler_content* \
 
 $mol_text_header $mol_paragraph
 	level 1
@@ -738,7 +765,6 @@ $mol_icon_sync_off $mol_icon path \M20,4H14V10L16.24,7.76C17.32,8.85 18,10.34 18
 $hyoo_crus_status $mol_select
 	minimal_width 40
 	minimal_height 40
-	realm $hyoo_crus_realm
 	Filter null
 	option_content* /
 		<= Option_logo* $mol_avatar
