@@ -12712,8 +12712,8 @@ var $;
                     return null;
                 }
             },
-            time: vary => vary,
-            dur: vary => null,
+            time: vary => null,
+            dur: vary => vary,
             range: vary => null,
             json: vary => new $mol_time_duration(vary),
             jsan: vary => null,
@@ -13275,6 +13275,8 @@ var $;
         apply_unit(delta, skip_check = false) {
             if (!delta.length)
                 return [];
+            if (!skip_check)
+                this.loading();
             const doubt = delta.filter(unit => !$hyoo_crus_unit_trusted.has(unit));
             if (doubt.length) {
                 const errors = $mol_wire_sync(this).units_verify(doubt);
@@ -13307,6 +13309,8 @@ var $;
                 if (await valid)
                     return '';
                 sens = unit.sens().slice();
+                for (let i = 0; i < mixin_lord.length; ++i)
+                    sens[i + 2] ^= mixin_lord[i];
                 valid = key_public.verify(sens, unit.sign());
                 if (await valid)
                     return '';
@@ -15231,6 +15235,7 @@ var $;
 "use strict";
 var $;
 (function ($) {
+    const Passives = new WeakMap();
     class $hyoo_crus_yard extends $mol_object {
         glob() {
             return null;
@@ -15353,7 +15358,10 @@ var $;
             return new $mol_wire_set();
         }
         port_lands_passive(port) {
-            return new $mol_wire_set();
+            let passives = Passives.get(port);
+            if (!passives)
+                Passives.set(port, passives = new Set);
+            return passives;
         }
         port_income(port, msg) {
             const pack = $mol_wire_sync($hyoo_crus_pack).from(msg);
@@ -15512,9 +15520,6 @@ var $;
     __decorate([
         $mol_mem_key
     ], $hyoo_crus_yard.prototype, "port_lands_active", null);
-    __decorate([
-        $mol_mem_key
-    ], $hyoo_crus_yard.prototype, "port_lands_passive", null);
     __decorate([
         $mol_action
     ], $hyoo_crus_yard.prototype, "port_income", null);
