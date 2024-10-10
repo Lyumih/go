@@ -170,6 +170,7 @@
     "$mol_lights",
     "$mol_media",
     "$mol_link_source",
+    "$mol_icon_script_text",
     "$mol_icon_script",
     "$mol_text_text",
     "$mol_text",
