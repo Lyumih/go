@@ -2336,7 +2336,7 @@ declare namespace $ {
 		ReturnType< $mol_dimmer['haystack'] >
 	>
 	type $mol_link__arg_mol_book2_catalog_4 = $mol_type_enforce<
-		ReturnType< $mol_book2_catalog['arg'] >
+		ReturnType< $mol_book2_catalog['menu_link_arg'] >
 		,
 		ReturnType< $mol_link['arg'] >
 	>
@@ -2410,6 +2410,7 @@ declare namespace $ {
 		Menu_filter( ): $mol_search
 		Menu_links_empty( ): $mol_view
 		arg( id: any): Record<string, any>
+		menu_link_arg( id: any): ReturnType< $mol_book2_catalog['arg'] >
 		spread_title( id: any): string
 		Menu_link_title( id: any): $mol_dimmer
 		menu_link_content( id: any): readonly(any)[]
@@ -4778,9 +4779,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -4980,7 +4979,7 @@ declare namespace $ {
     function $hyoo_crus_vary_cast_time(vary: $hyoo_crus_vary_type): $mol_time_moment | null;
     function $hyoo_crus_vary_cast_dur(vary: $hyoo_crus_vary_type): $mol_time_duration | null;
     function $hyoo_crus_vary_cast_range(vary: $hyoo_crus_vary_type): $mol_time_interval | null;
-    function $hyoo_crus_vary_cast_json(vary: $hyoo_crus_vary_type): object | null;
+    function $hyoo_crus_vary_cast_json(vary: $hyoo_crus_vary_type): {} | null;
     function $hyoo_crus_vary_cast_jsan(vary: $hyoo_crus_vary_type): any[] | null;
     function $hyoo_crus_vary_cast_dom(vary: $hyoo_crus_vary_type): Element | null;
     function $hyoo_crus_vary_cast_tree(vary: $hyoo_crus_vary_type): $mol_tree2 | null;
@@ -5002,7 +5001,7 @@ declare namespace $ {
         readonly dom: typeof $hyoo_crus_vary_cast_dom;
         readonly tree: typeof $hyoo_crus_vary_cast_tree;
     };
-    function $hyoo_crus_vary_cast<Tip extends keyof typeof $hyoo_crus_vary_tip>(tip: Tip, vary: $hyoo_crus_vary_type): string | number | bigint | boolean | object | null;
+    function $hyoo_crus_vary_cast<Tip extends keyof typeof $hyoo_crus_vary_tip>(tip: Tip, vary: $hyoo_crus_vary_type): {} | null;
 }
 
 declare namespace $ {
@@ -5278,9 +5277,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5327,9 +5324,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5378,9 +5373,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5429,9 +5422,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5480,9 +5471,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5535,9 +5524,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5586,9 +5573,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5637,9 +5622,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5688,9 +5671,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5739,9 +5720,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5766,7 +5745,7 @@ declare namespace $ {
     export class $hyoo_crus_list_range extends $hyoo_crus_list_range_base {
     }
     const $hyoo_crus_list_json_base: (abstract new () => {
-        items(next?: readonly (object | null)[] | undefined): readonly (object | null)[];
+        items(next?: readonly ({} | null)[] | undefined): readonly ({} | null)[];
         items_vary(next?: readonly $hyoo_crus_vary_type[], tag?: keyof typeof $hyoo_crus_sand_tag): readonly $hyoo_crus_vary_type[];
         splice(next: readonly $hyoo_crus_vary_type[], from?: number, to?: number, tag?: keyof typeof $hyoo_crus_sand_tag): void;
         find(vary: $hyoo_crus_vary_type): $hyoo_crus_sand | null;
@@ -5790,9 +5769,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5841,9 +5818,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5892,9 +5867,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -5943,9 +5916,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6006,9 +5977,7 @@ declare namespace $ {
             units(): $hyoo_crus_sand[];
             units_of(peer: string | null): $hyoo_crus_sand[];
             filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
+            can_change(): boolean;
             last_change(): $mol_time_moment | null;
             author_peers(): string[];
             author_lords(): (symbol & {
@@ -6081,9 +6050,7 @@ declare namespace $ {
             units(): $hyoo_crus_sand[];
             units_of(peer: string | null): $hyoo_crus_sand[];
             filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
+            can_change(): boolean;
             last_change(): $mol_time_moment | null;
             author_peers(): string[];
             author_lords(): (symbol & {
@@ -6145,9 +6112,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6189,9 +6154,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6233,9 +6196,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6279,9 +6240,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6325,9 +6284,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6371,9 +6328,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6425,9 +6380,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6471,9 +6424,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6517,9 +6468,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6563,9 +6512,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6609,9 +6556,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6636,8 +6581,8 @@ declare namespace $ {
     export class $hyoo_crus_atom_range extends $hyoo_crus_atom_range_base {
     }
     const $hyoo_crus_atom_json_base: (abstract new () => {
-        val(next?: object | null | undefined): object | null;
-        val_of(peer: string | null, next?: object | null | undefined): object | null;
+        val(next?: {} | null | undefined): {} | null;
+        val_of(peer: string | null, next?: {} | null | undefined): {} | null;
         pick_unit(peer: string | null): $hyoo_crus_sand | undefined;
         vary(next?: $hyoo_crus_vary_type): $hyoo_crus_vary_type;
         vary_of(peer: string | null, next?: $hyoo_crus_vary_type): $hyoo_crus_vary_type;
@@ -6655,9 +6600,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6701,9 +6644,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6747,9 +6688,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6793,9 +6732,7 @@ declare namespace $ {
         units(): $hyoo_crus_sand[];
         units_of(peer: string | null): $hyoo_crus_sand[];
         filled(): boolean;
-        can_change(lord?: symbol & {
-            $hyoo_crus_ref: symbol;
-        }): boolean;
+        can_change(): boolean;
         last_change(): $mol_time_moment | null;
         author_peers(): string[];
         author_lords(): (symbol & {
@@ -6861,9 +6798,7 @@ declare namespace $ {
             units(): $hyoo_crus_sand[];
             units_of(peer: string | null): $hyoo_crus_sand[];
             filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
+            can_change(): boolean;
             last_change(): $mol_time_moment | null;
             author_peers(): string[];
             author_lords(): (symbol & {
@@ -6946,9 +6881,7 @@ declare namespace $ {
             units(): $hyoo_crus_sand[];
             units_of(peer: string | null): $hyoo_crus_sand[];
             filled(): boolean;
-            can_change(lord?: symbol & {
-                $hyoo_crus_ref: symbol;
-            }): boolean;
+            can_change(): boolean;
             last_change(): $mol_time_moment | null;
             author_peers(): string[];
             author_lords(): (symbol & {
@@ -7004,9 +6937,7 @@ declare namespace $ {
                     units(): $hyoo_crus_sand[];
                     units_of(peer: string | null): $hyoo_crus_sand[];
                     filled(): boolean;
-                    can_change(lord?: symbol & {
-                        $hyoo_crus_ref: symbol;
-                    }): boolean;
+                    can_change(): boolean;
                     last_change(): $mol_time_moment | null;
                     author_peers(): string[];
                     author_lords(): (symbol & {
